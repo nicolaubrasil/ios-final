@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mural-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController id="9pv-A4-QxB" customClass="WallViewController" customModule="IFCEApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Mural" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                                <rect key="frame" x="163.5" y="426.5" width="87" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytt-2g-wSg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Mural" id="Cdw-FK-fdk"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="07S-4w-idc"/>
+                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="PC5-Uz-0Pw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <tabBarItem key="tabBarItem" title="Mural" image="wall" id="acW-dT-cKf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
+        <!--Cursos-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="CourseViewController" customModule="IFCEApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2Q-8k-Fnz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Cursos" id="w3W-WW-G8C"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yRy-aa-yxS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="vCd-bQ-dVF">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vCd-bQ-dVF" id="mIc-yH-CfK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cursos" image="courses" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="tableView" destination="yRy-aa-yxS" id="b61-6D-NwJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.27536231884062" y="359.59821428571428"/>
+        </scene>
+        <!--Cardápio-->
+        <scene sceneID="6qH-Rh-7VE">
+            <objects>
+                <viewController id="M8I-bw-iWZ" customClass="MenuViewController" customModule="IFCEApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="clX-Rb-cWN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Cardápio" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="e5Z-FT-4gg">
+                                <rect key="frame" x="136.5" y="426.5" width="141" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67e-dV-F16">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Cardápio" id="szF-i0-NbK"/>
+                                </items>
+                            </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Blf-f6-oKA">
+                                <rect key="frame" x="20" y="109" width="374" height="29"/>
+                                <segments>
+                                    <segment title="SEG"/>
+                                    <segment title="TER"/>
+                                    <segment title="QUA"/>
+                                    <segment title="QUI"/>
+                                    <segment title="SEX"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setWeekDay:" destination="M8I-bw-iWZ" eventType="valueChanged" id="ZAg-jo-L8P"/>
+                                </connections>
+                            </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YO2-ut-pip">
+                                <rect key="frame" x="87" y="477" width="240" height="196"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rm2-x6-8HP" firstAttribute="bottom" secondItem="YO2-ut-pip" secondAttribute="bottom" constant="140" id="6C5-sG-uSn"/>
+                            <constraint firstItem="e5Z-FT-4gg" firstAttribute="centerX" secondItem="clX-Rb-cWN" secondAttribute="centerX" id="JSs-0S-8tx"/>
+                            <constraint firstItem="Blf-f6-oKA" firstAttribute="centerX" secondItem="e5Z-FT-4gg" secondAttribute="centerX" id="NfK-Y0-61W"/>
+                            <constraint firstItem="e5Z-FT-4gg" firstAttribute="centerY" secondItem="clX-Rb-cWN" secondAttribute="centerY" id="aDJ-oj-Va3"/>
+                            <constraint firstItem="67e-dV-F16" firstAttribute="centerX" secondItem="Blf-f6-oKA" secondAttribute="centerX" id="bZu-Sh-kjF"/>
+                            <constraint firstItem="YO2-ut-pip" firstAttribute="top" secondItem="e5Z-FT-4gg" secondAttribute="bottom" constant="7.5" id="fSB-g3-Esy"/>
+                            <constraint firstItem="67e-dV-F16" firstAttribute="top" secondItem="rm2-x6-8HP" secondAttribute="top" id="l6B-DR-OEU"/>
+                            <constraint firstItem="YO2-ut-pip" firstAttribute="centerX" secondItem="e5Z-FT-4gg" secondAttribute="centerX" id="orQ-0B-95J"/>
+                            <constraint firstItem="YO2-ut-pip" firstAttribute="leading" secondItem="rm2-x6-8HP" secondAttribute="leading" constant="87" id="sUz-6K-Grf"/>
+                            <constraint firstItem="Blf-f6-oKA" firstAttribute="leading" secondItem="clX-Rb-cWN" secondAttribute="leadingMargin" id="tSH-vQ-INY"/>
+                            <constraint firstItem="67e-dV-F16" firstAttribute="leading" secondItem="clX-Rb-cWN" secondAttribute="leading" id="ukl-fz-kny"/>
+                            <constraint firstItem="Blf-f6-oKA" firstAttribute="top" secondItem="67e-dV-F16" secondAttribute="bottom" constant="21" id="wxN-tF-Ywv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rm2-x6-8HP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cardápio" image="menu" id="rBM-uI-zrd"/>
+                    <connections>
+                        <outlet property="imageView" destination="YO2-ut-pip" id="uLx-4I-KLo"/>
+                        <outlet property="segmentedControl" destination="Blf-f6-oKA" id="dC3-xa-6ds"/>
+                        <outlet property="textLabel" destination="e5Z-FT-4gg" id="t0V-uR-QLi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ik3-hV-6e4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="-716.51785714285711"/>
+        </scene>
+        <!--Informações-->
+        <scene sceneID="se6-u6-8QP">
+            <objects>
+                <viewController id="9I5-vk-E3n" customClass="InformationViewController" customModule="IFCEApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vXM-9Q-Pbk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Informações" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hzg-qg-p6v">
+                                <rect key="frame" x="111.5" y="426.5" width="191" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMM-NO-iai">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Informações" id="fRf-5b-cuM"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hzg-qg-p6v" firstAttribute="centerY" secondItem="vXM-9Q-Pbk" secondAttribute="centerY" id="Cgt-e2-iUQ"/>
+                            <constraint firstItem="Hzg-qg-p6v" firstAttribute="centerX" secondItem="vXM-9Q-Pbk" secondAttribute="centerX" id="m01-tS-Xmh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="azB-KP-VyX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Informações" image="information" id="qPs-Dx-kdI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4iH-ca-Md6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="897"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="9I5-vk-E3n" kind="relationship" relationship="viewControllers" id="CE8-gA-xeC"/>
+                        <segue destination="M8I-bw-iWZ" kind="relationship" relationship="viewControllers" id="Oq4-i4-h2z"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="courses" width="25" height="25"/>
+        <image name="information" width="25" height="25"/>
+        <image name="menu" width="25" height="25"/>
+        <image name="wall" width="25" height="25"/>
+    </resources>
+</document>
