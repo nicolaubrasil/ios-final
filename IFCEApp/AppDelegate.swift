@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+            statusBar.backgroundColor = UIColor(red:0.66, green:0.79, blue:0.60, alpha:1.0)
+        }
+        
+        // Tabbar
+        UITabBar.appearance().barTintColor = UIColor(red:0.78, green:0.94, blue:0.72, alpha:1.0)
+        UITabBar.appearance().tintColor = UIColor(red:0.22, green:0.60, blue:0.21, alpha:1.0)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(red:0.52, green:0.78, blue:0.46, alpha:1.0)
+        
         return true
     }
 

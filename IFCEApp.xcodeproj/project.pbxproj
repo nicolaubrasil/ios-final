@@ -20,6 +20,9 @@
 		61F8085022739155005A7F25 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8084F22739155005A7F25 /* API.swift */; };
 		61F8085222739ED7005A7F25 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8085122739ED7005A7F25 /* Image.swift */; };
 		61F808542273A220005A7F25 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F808532273A220005A7F25 /* Category.swift */; };
+		B6F12B182275237D00600648 /* CustomUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F12B172275237D00600648 /* CustomUI.swift */; };
+		B6F12B1A227537CE00600648 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F12B19227537CE00600648 /* CourseDetailViewController.swift */; };
+		B6F12B1C2275483F00600648 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F12B1B2275483F00600648 /* Spinner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		61F8084F22739155005A7F25 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		61F8085122739ED7005A7F25 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		61F808532273A220005A7F25 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B6F12B172275237D00600648 /* CustomUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUI.swift; sourceTree = "<group>"; };
+		B6F12B19227537CE00600648 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
+		B6F12B1B2275483F00600648 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 		61F8082B22724574005A7F25 /* IFCEApp */ = {
 			isa = PBXGroup;
 			children = (
+				B6F12B162275236A00600648 /* Utils */,
 				61F8084E2273914A005A7F25 /* Services */,
 				61F8084122724B16005A7F25 /* Controllers */,
 				61F8084022724B10005A7F25 /* Models */,
@@ -100,6 +107,7 @@
 				61F8084422724B33005A7F25 /* MenuViewController.swift */,
 				61F8084622724B42005A7F25 /* CourseViewController.swift */,
 				61F8084822724B50005A7F25 /* InformationViewController.swift */,
+				B6F12B19227537CE00600648 /* CourseDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,6 +118,15 @@
 				61F8084F22739155005A7F25 /* API.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B6F12B162275236A00600648 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B6F12B172275237D00600648 /* CustomUI.swift */,
+				B6F12B1B2275483F00600648 /* Spinner.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +203,9 @@
 				61F8084B22724D31005A7F25 /* Course.swift in Sources */,
 				61F808542273A220005A7F25 /* Category.swift in Sources */,
 				61F8085222739ED7005A7F25 /* Image.swift in Sources */,
+				B6F12B182275237D00600648 /* CustomUI.swift in Sources */,
+				B6F12B1C2275483F00600648 /* Spinner.swift in Sources */,
+				B6F12B1A227537CE00600648 /* CourseDetailViewController.swift in Sources */,
 				61F8084522724B33005A7F25 /* MenuViewController.swift in Sources */,
 				61F8084D22739055005A7F25 /* Menu.swift in Sources */,
 				61F8084922724B50005A7F25 /* InformationViewController.swift in Sources */,

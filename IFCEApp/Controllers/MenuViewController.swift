@@ -17,20 +17,44 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let weekDay = Calendar.current.component(.weekday, from: Calendar.current.startOfDay(for: Date()))
-        segmentedControl?.selectedSegmentIndex = weekDay - 2
         
-        guard let url = URL(string: "http://10.45.48.146:1337/uploads/6ad2a754552844eb91b1121634148d29.png") else {
-            return
-        }
-        imageView.load(url: url)
-        
-        doGetRequest()
+        Spinner.start()
+        setSegmented()
+        getFood(day: -48)
     }
     
-    func doGetRequest () {
-        
-        let getURL = URL(string: "http://10.45.48.146:1337/menus/1")!
+    @IBAction func setWeekDay(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            getFood(day: 1)
+        case 1:
+            getFood(day: 2)
+        case 2:
+            getFood(day: 3)
+        case 3:
+            getFood(day: 4)
+        case 4:
+            getFood(day: 5)
+        default:
+            getFood(day: 1)
+        }
+    }
+    
+    func setSegmented() {
+        var weekDay = Calendar.current.component(.weekday, from: Calendar.current.startOfDay(for: Date()))
+        switch weekDay {
+        case 1, 7:
+            weekDay = 2
+        default:
+            break
+        }
+        segmentedControl?.selectedSegmentIndex = weekDay - 2
+    }
+    
+    func getFood(day: Int) {
+        let id = day > 5 || day < 1 ? 1 : day
+        let getURL = URL(string: "\(API.baseURL)/foods/\(id)")!
         var getRequest = URLRequest(url: getURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30)
         getRequest.httpMethod = "GET"
         
@@ -38,17 +62,16 @@ class MenuViewController: UIViewController {
             if error != nil { print ("GET Request in \(getRequest) Error: \(error!)") }
             if data != nil {
                 do {
+                    let menu = try JSONDecoder().decode(Menu.self, from: data!)
                     DispatchQueue.main.async {
-                        
-                        let menu = try? JSONDecoder().decode(Menu.self, from: data!)
-                        
-                        guard let imageURL = URL(string: API.baseURL + menu!.image.url) else {
+                        guard let imageURL = URL(string: API.baseURL + menu.image.url) else {
                             return
                         }
                         
-                        
-                        self.textLabel?.text = menu?.description
+                        self.textLabel?.text = menu.description
                         self.imageView.load(url: imageURL)
+                        
+                        Spinner.stop()
                     }
                 } catch {
                     DispatchQueue.main.async {
@@ -59,24 +82,6 @@ class MenuViewController: UIViewController {
         }
         DispatchQueue.global(qos: .background).async {
             getTask.resume()
-        }
-    }
-    
-    @IBAction func setWeekDay(_ sender: Any) {
-        switch segmentedControl.selectedSegmentIndex
-        {
-        case 0:
-            textLabel.text = "Segunda"
-        case 1:
-            textLabel.text = "Terça"
-        case 2:
-            textLabel.text = "Quarta"
-        case 3:
-            textLabel.text = "Quinta"
-        case 4:
-            textLabel.text = "Sexta"
-        default:
-            textLabel.text = "Segunda"
         }
     }
     

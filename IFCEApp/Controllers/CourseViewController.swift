@@ -10,8 +10,9 @@ import UIKit
 
 class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var courses = [Course]()
+    var courses = [[Course]]()
     var sections = [String]()
+    var spinner = UIActivityIndicatorView()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,19 +22,15 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         tableView.delegate = self
         
-        doGetRequest()
+        Spinner.start()
+        getAllCourses()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
-    }
-    
+    // Table
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let course = courses[indexPath.row]
-        
-        cell.textLabel?.text = course.title
+        cell.textLabel?.text = courses[indexPath.section][indexPath.row].title
         
         return cell
     }
@@ -43,14 +40,26 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return sections[section]
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return courses[section].count
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
     
-    // Refactor
-    func doGetRequest () {
+    // Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let courseDetails = segue.destination as! CourseDetailViewController
+            courseDetails.course = courses[indexPath.section][indexPath.row]
+        }
+    }
+    
+    // Refactor to generic
+    func getAllCourses () {
         
-        let getURL = URL(string: "http://10.45.48.146:1337/categories")!
+        let getURL = URL(string: "\(API.baseURL)/categories")!
         var getRequest = URLRequest(url: getURL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30)
         getRequest.httpMethod = "GET"
         
@@ -58,21 +67,32 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if error != nil { print ("GET Request in \(getRequest) Error: \(error!)") }
             if data != nil {
                 do {
-                    let resultObject = try JSONSerialization.jsonObject(with   : data!, options: [])
+                    let categories = try JSONDecoder().decode([Category].self, from: data!)
                     DispatchQueue.main.async {
-                        let categories = try? JSONDecoder().decode([Category].self, from: data!)
-                        print(resultObject)
-//                        self.tableView.reloadData()
+                        for category in categories {
+                            self.sections.append(category.title)
+                            var coursesList: [Course] = []
+                            
+                            for course in category.courses {
+                                coursesList.append(course)
+                            }
+                            
+                            self.courses.append(coursesList)
+                        }
+                        
+                        self.tableView.reloadData()
+                        Spinner.stop()
                     }
                 } catch {
                     DispatchQueue.main.async {
                         print("Unable to parse JSON response in \(getRequest)")}
                 }
             }
-            else {print ("Received empty quest response from \(getRequest)")}
+            else { print ("Received empty quest response from \(getRequest)") }
         }
         DispatchQueue.global(qos: .background).async {
             getTask.resume()
         }
     }
 }
+

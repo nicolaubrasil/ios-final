@@ -1,13 +1,6 @@
-//
-//  Course.swift
-//  IFCEApp
-//
-//  Created by William Nicolau Brasil Araújo on 25/04/19.
-//  Copyright © 2019 William Nicolau Brasil Araújo. All rights reserved.
-//
-
 struct Course: Codable
 {
+    var id: Int
     var title: String
-    var description: String
+    var description: String?
 }
