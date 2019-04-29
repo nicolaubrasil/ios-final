@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -98,20 +97,44 @@
             </objects>
             <point key="canvasLocation" x="1488.8" y="-320.68965517241384"/>
         </scene>
-        <!--View Controller-->
+        <!--Post View Controller-->
         <scene sceneID="0ej-sa-M2S">
             <objects>
-                <viewController id="c2M-OG-Kd1" sceneMemberID="viewController">
+                <viewController id="c2M-OG-Kd1" customClass="PostViewController" customModule="IFCEApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o6b-Ln-Paz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="042-vM-BJm">
+                                <rect key="frame" x="0.0" y="77" width="375" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j7-eb-I50">
+                                <rect key="frame" x="108" y="481" width="159" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Adicionar imagem"/>
+                                <connections>
+                                    <action selector="openGallery:" destination="c2M-OG-Kd1" eventType="touchUpInside" id="w90-JI-K8O"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9wo-fn-tNe" firstAttribute="trailing" secondItem="042-vM-BJm" secondAttribute="trailing" id="5i1-jn-IUl"/>
+                            <constraint firstItem="042-vM-BJm" firstAttribute="top" secondItem="9wo-fn-tNe" secondAttribute="top" constant="1" id="614-lR-f9z"/>
+                            <constraint firstItem="042-vM-BJm" firstAttribute="top" secondItem="9wo-fn-tNe" secondAttribute="top" id="JqP-xd-qzY"/>
+                            <constraint firstItem="042-vM-BJm" firstAttribute="leading" secondItem="9wo-fn-tNe" secondAttribute="leading" id="hv6-hq-XJ2"/>
+                            <constraint firstItem="2j7-eb-I50" firstAttribute="top" secondItem="042-vM-BJm" secondAttribute="bottom" constant="103" id="nNf-gi-pNH"/>
+                            <constraint firstItem="042-vM-BJm" firstAttribute="top" secondItem="9wo-fn-tNe" secondAttribute="top" id="wjC-Je-ZS0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9wo-fn-tNe"/>
                     </view>
+                    <connections>
+                        <outlet property="imagePicked" destination="042-vM-BJm" id="cTY-hw-SQZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9U-zX-LVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2209" y="-321"/>
+            <point key="canvasLocation" x="2208.8000000000002" y="-321.58920539730138"/>
         </scene>
         <!--Cursos-->
         <scene sceneID="wg7-f3-ORb">
