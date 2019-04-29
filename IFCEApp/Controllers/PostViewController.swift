@@ -8,23 +8,40 @@
 
 import UIKit
 
-class PostViewController: UIViewController {
-
+class PostViewController: UIViewController, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imagePicked: UIImageView!
+    
+    let imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        imagePicker.delegate = self
+        
+        func openGallery(_ sender: UIButton) {
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                imagePicker.allowsEditing = true
+                imagePicker.sourceType = .photoLibrary;
+                imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        }
+        
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            dismiss(animated: true, completion: nil)
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController,
+                                   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            
+            let selectedImage = info[.originalImage] as? UIImage
+            imagePicked.image = selectedImage
+            
+            let storageImage = try? NSKeyedArchiver.archivedData(withRootObject: selectedImage, requiringSecureCoding: false)
+            
+            dismiss(animated: true, completion: nil)
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
