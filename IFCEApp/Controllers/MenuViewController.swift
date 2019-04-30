@@ -20,7 +20,10 @@ class MenuViewController: UIViewController {
         
         Spinner.start()
         setSegmented()
-        getFood(day: -48)
+        
+        // Refactor
+        let d = Calendar.current.component(.weekday, from: Calendar.current.startOfDay(for: Date()))
+        getFood(day: (d-1))
     }
     
     @IBAction func setWeekDay(_ sender: Any) {

@@ -8,8 +8,7 @@
 
 import UIKit
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     @IBOutlet weak var imagePicked: UIImageView!
     
@@ -17,31 +16,41 @@ UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         imagePicker.delegate = self
         
-        func openGallery(_ sender: UIButton) {
-            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                imagePicker.allowsEditing = true
-                imagePicker.sourceType = .photoLibrary;
-                imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
-                self.present(imagePicker, animated: true, completion: nil)
-            }
-        }
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        imagePicked.isUserInteractionEnabled = true
+        imagePicked.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
         
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            dismiss(animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+            self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func openLibrary(_ sender: Any) {
+        print("POST")
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        func imagePickerController(_ picker: UIImagePickerController,
-                                   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            
-            let selectedImage = info[.originalImage] as? UIImage
-            imagePicked.image = selectedImage
-            
-            let storageImage = try? NSKeyedArchiver.archivedData(withRootObject: selectedImage, requiringSecureCoding: false)
-            
-            dismiss(animated: true, completion: nil)
-        }
+        let selectedImage = info[.originalImage] as? UIImage
+        imagePicked.image = selectedImage
+        
+        dismiss(animated: true, completion: nil)
     }
 }
 
